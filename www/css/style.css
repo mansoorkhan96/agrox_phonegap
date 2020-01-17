@@ -267,7 +267,7 @@ h1, .h1 {
 	font-size:56px;
 }
 h2, .h2 {
-    font-size: 40px;
+    font-size: 28px;
 }
 h3, .h3 {
     font-size: 34px;
@@ -379,14 +379,14 @@ select {
     color: #5fbd74;
 }
 .section-title {
-    font-weight: 900;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 .section-pretitle {
 	color: #5fbd74;
     line-height: 1.2;
-    font-size: 56px;
+    font-size: 33px;
     font-weight: 400;
     font-style: normal;
     font-family: "Great Vibes";
@@ -5859,7 +5859,7 @@ table.shop-cart .actions .update-cart {
 }
 @media (max-width: 667px) {
 	.masonry-item {
-		width: 100%;
+		width: 33%;
 	}
 }
 @media (max-width: 414px) {

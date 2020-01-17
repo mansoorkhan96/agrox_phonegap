@@ -1,26 +1,5 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -28,33 +7,343 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <title>AgroX</title>
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/ionicons.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all"/>
+    <link rel='stylesheet' href="css/prettyPhoto.css" type='text/css' media='all'/>
+    <link rel='stylesheet' href="css/slick.css" type='text/css' media='all'/>
+    <link rel="stylesheet" href="css/settings.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/agrox.css" type="text/css" media="all"/>
+    <link href="http://fonts.googleapis.com/css?family=Great+Vibes%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet"/>
 </head>
 
 <body>
-    <div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
+    <!-- Mobile Screen -->
+    <div id="menu-slideout" class="slideout-menu hidden-md-up">
+        <div class="mobile-menu">
+            <ul id="mobile-menu" class="menu">
+                <li>
+                    <a id="menu-home" href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Shop</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
         </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
+    <div class="site">
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="topbar-menu">
+                            <ul class="topbar-menu">
+                                
+                                    
+                                <!-- <li><a href=""><img class="img-circle front-profile" src="{{ avatar(auth()->user()->avatar) }}" alt=""></a></li>
+                                <li><a href="">My Orders</a></li>
+                                
+                                <li>
+                                    <a href="" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        LogOut
+                                    </a>
+                                </li>
+                                <form id="logout-form" action="{{ route('logout" method="POST" style="display: none;">
+                                    
+                                </form> -->
+                                
+                                <li><a href="">Login</a></li>
+                                <li><a href="">Register</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <header id="header" class="header header-desktop header-2">
+            <div class="top-search">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form>
+                                <input type="search" class="top-search-input" name="s" placeholder="What are you looking for?" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="index.html" id="logo">
+                            <img class="logo-image" src="images/logo.png" alt="AgroX Logo" />
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="header-right">
+                            <nav class="menu">
+                                <ul class="main-menu">
+                                    <li class="active">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Forum</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">About Us</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="btn-wrap">
+                                <div class="mini-cart-wrap">
+                                    <div class="mini-cart">
+                                        <div class="mini-cart-icon" data-count="4">
+                                            <i class="ion-bag"></i>
+                                        </div>
+                                    </div>
+                                    <div class="widget-shopping-cart-content">
+                                        <ul class="cart-list">
+                                            <!-- @forelse (MCart::content() as $item)
+                                            <li>
+                                                {{ Form::open(['route' => ['cart.destroy', $item['rowId']], 'method' => 'DELETE']) }}
+                                                    <button type="submit" class="remove">x</button>
+                                                {{ Form::close() }}
+                                                {{-- <a href="#" class="remove">×</a> --}}
+                                                <a href="{{ route('shop.show', $item['slug']) }}">
+                                                    <img src="/storage/' . $item['image']) }}" alt="" />
+                                                    {{ $item['name'] }}&nbsp;
+                                                </a>
+                                                <span class="quantity">{{ $item['qty'] }} × Rs {{ $item['price'] }}</span>
+                                            </li> 
+                                            @empty
+                                            Empty Cart 
+                                            @endforelse -->
+                                        </ul>
+                                        <!-- <p class="total">
+                                            <strong>Subtotal:</strong> 
+                                            <span class="amount">Rs </span>
+                                        </p>
+                                        <p class="buttons">
+                                            <a href="{{ route('cart.index" class="view-cart">View cart</a>
+                                            @if (MCart::count() > 0)
+                                            <a href="{{ route('checkout.index" class="checkout">Checkout</a>
+                                            @endif
+                                        </p> -->
+                                    </div>
+                                </div>
+                                <div class="top-search-btn-wrap">
+                                    <div class="top-search-btn">
+                                        <a href="javascript:void(0);">
+                                            <i class="ion-search"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Mobile Nav -->
+        <header class="header header-mobile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="header-left">
+                            <div id="open-left"><i class="ion-navicon"></i></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8">
+                        <div class="header-center">
+                            <a href="index.html" id="logo-2">
+                                <img class="logo-image" src="images/logo.png" alt="AgroX Logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="header-right">
+                            <div class="mini-cart-wrap">
+                                <a href="#">
+                                    <div class="mini-cart">
+                                        <div class="mini-cart-icon" data-count="3">
+                                            <i class="ion-bag"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="main">
+            
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="images/footer_logo.png" alt="" class="footer-logo" />
+                        <p>
+                            Welcome to AgroX. Our products are freshly harvested, washed ready for box and finally delivered from our family farm right to your doorstep.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h3 class="widget-title">Infomation</h3>
+                            <ul>
+                                <li><a href="">New Products</a></li>
+                                <li><a href="">Top Sellers</a></li>
+                                <li><a href="">Our Blog</a></li>
+                                <li><a href="">About Our Shop</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h3 class="widget-title">Useful Link</h3>
+                            <ul>
+                                <li><a href="">Our Team</a></li>
+                                <li><a href="">Our Blog</a></li>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Secure Shopping</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <h3 class="widget-title">Subscribe</h3>
+                            <p>
+                                Enter your email address for our mailing list to keep yourself updated.
+                            </p>
+                            <form class="newsletter">
+                                <input type="email" name="EMAIL" placeholder="Your email address" required="" />
+                                <button><i class="fa fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        Copyright © 2019 <a href="">AgroX</a> - All Rights Reserved.
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/footer_payment.png" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="backtotop" id="backtotop"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            const BASE_URL = 'http://localhost:8000/';
+            const IMAGE_BASE_URL = 'http://localhost:8000/storage/';
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            homePage();
+
+
+            $(document).on('click', '#menu-home', function(e) {
+                e.preventDefault();
+
+                homePage()
+            });
+
+            function homePage() {
+                $('#main').load('pages/home.html');
+            }
+        });
     </script>
+
+    <script src="js/toastr.min.js"></script>
+    <!-- @include('includes.message') -->
+    
+    <script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.init.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="js/extensions/revolution.extension.parallax.min.js"></script>
+    
+    
+    <!-- {{-- Shop Details --}} -->
+    <script type='text/javascript' src="js/jquery.prettyPhoto.js"></script>
+    <script type='text/javascript' src="js/jquery.prettyPhoto.init.min.js"></script>
+    <script type='text/javascript' src="js/slick.min.js"></script>
+
+    <!-- {{-- Shop.html --}} -->
+
+    <script type="text/javascript" src="js/core.min.js"></script>
+    <script type="text/javascript" src="js/widget.min.js"></script>
+    <script type="text/javascript" src="js/mouse.min.js"></script>
+    <script type="text/javascript" src="js/slider.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.touch-punch.js"></script>
+    <script type="text/javascript" src="js/price-slider.js"></script>
+
+    
 </body>
 
 </html>

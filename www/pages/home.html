@@ -1,0 +1,158 @@
+<div class="section section-bg-1 section-cover pb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mt-3 mb-3">
+                    <img src="" alt="" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="mt-4 mb-1 section-pretitle">Welcome to</div>
+                <h2 class="section-title mtn-2 mb-3">AgroX Store</h2>
+                <p class="mb-4">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non ad quisquam ducimus beatae? Quo praesentium reiciendis distinctio velit? Suscipit odio quae consectetur magni voluptatibus doloremque vero eum id labore rem fugiat, deserunt doloribus illum fuga iusto numquam recusandae modi rerum.
+                </p>
+                <a class="organik-btn arrow" href="">Our products</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section pt-1 pb-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center mb-1 section-pretitle">Discover</div>
+                <h2 class="text-center section-title mtn-2">Our products</h2>
+                <div class="organik-seperator center">
+                    <span class="sep-holder"><span class="sep-line"></span></span>
+                    <div class="sep-icon"><i class="organik-flower"></i></div>
+                    <span class="sep-holder"><span class="sep-line"></span></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="product-grid masonry-grid-post row" id="products">
+                
+            </div>
+            <div class="loadmore-contain">
+                <a class="organik-btn small" href="{{ route('shop.index') }}"> Show All Products </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section pt-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="text-center mb-1 section-pretitle">Latest</div>
+                <h2 class="text-center section-title mtn-2">From our blog</h2>
+                <div class="organik-seperator center mb-6">
+                    <span class="sep-holder"><span class="sep-line"></span></span>
+                    <div class="sep-icon"><i class="organik-flower"></i></div>
+                    <span class="sep-holder"><span class="sep-line"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="blog">
+            
+        </div>
+        <div class="loadmore-contain">
+            <a class="organik-btn small" href="{{ route('blog.index') }}"> Show All Posts </a>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <hr class="mt-7 mb-3" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const BASE_URL = 'http://localhost:8000/';
+    const IMAGE_BASE_URL = 'http://localhost:8000/storage/';
+
+    $.ajax({
+        url: 'http://localhost:8000/api/'
+    }).done(function(data) {
+        let products = '';
+        
+        $.each(data.products, function(key, item) {
+            products += `
+            <div class="col-xs-4 col-md-3 col-sm-6 product-item masonry-item text-center juice">
+                <div class="product-thumb">
+                    <a href="${BASE_URL}/shop/${item.slug}">
+                        <img src="${IMAGE_BASE_URL}${item.featured_image}" alt="" />
+                    </a>
+                    <div class="product-action">
+                        <form id="add-to-cart">
+                            <input type="hidden" name="id" value="${item.id}">
+                            <input type="hidden" name="image" value="${item.id}">
+                            <input type="hidden" name="name" value="${item.id}">
+                            <input type="hidden" name="details" value="${item.id}">
+                            <input type="hidden" name="price" value="${item.id}">
+                            <input type="hidden" name="slug" value="${item.id}">
+                            <span class="add-to-cart">
+                                <button type="submit" data-placement="top" title="Add to cart"></button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <a href="${BASE_URL}/shop/${item.slug}">
+                        <h2 class="title">${item.name}</h2>
+                        <span class="price">
+                            <ins>RS ${item.price}</ins>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            `;
+        });
+
+        let blog = '';
+
+        console.log(data.posts);
+
+        $.each(data.posts, function(key, item) {
+            let date = item.created_at.split(" ");
+            date = date[0];
+
+            blog += `
+            <div class="col-md-4">
+                <div class="blog-grid-item">
+                    <div class="post-thumbnail">
+                        <a href=""> 
+                            <img src="${IMAGE_BASE_URL}${item.featured_image}" alt="" /> 
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <div class="entry-meta">
+                            <span class="posted-on">
+                                <i class="ion-calendar"></i> 
+                                <span>${date}</span>
+                            </span>
+                            <span class="comment">
+                                <i class="ion-chatbubble-working"></i> ${item.discussions_count}
+                            </span>
+                        </div>
+                        <a href="">
+                            <h1 class="entry-title">${item.title }</h1>
+                        </a>
+                        <div class="entry-content"> 
+                            ${item.excerpt.substring(0, 100)}
+                        </div>
+                        <div class="entry-more">
+                            <a href="">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+        
+        $('#blog').html(blog);
+        $('#products').html(products);
+    });
+</script>
