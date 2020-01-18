@@ -1,0 +1,52 @@
+.page-title {
+    display: inline-block;
+    height: auto;
+    font-size: 20px;
+    height: 100px;
+    line-height: 43px;
+    margin-top: 3px;
+    padding-top: 15px;
+    color: #555;
+    position: relative;
+    margin-bottom: 0;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.agrox-table {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+}
+
+.no-btn {
+    all: unset;
+    cursor: pointer;
+}
+
+.article-date {
+    height: 48px;
+    width: 48px;
+    text-align: center;
+    color: #fff;
+    padding: 6px 5px;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.table-inbox tr.unread {
+    font-weight: 600;
+}
+
+.table-inbox tr>td:first-child {
+    padding-left: 1.5rem
+}
+
+.table-inbox tr>td:last-child {
+    padding-right: 1rem
+}
+
+.topic-active {
+    color: #18c5a9;
+    font-weight: 600;
+}
