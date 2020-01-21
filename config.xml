@@ -96,8 +96,12 @@
     <plugin name="cordova-plugin-whitelist" version="1" />
 
     <allow-navigation href="*" />
+
     <allow-navigation href="https://agrox.roshnigrammarschool.com/*" />
     <allow-navigation href="*://*.agrox.roshnigrammarschool.com/*" />
+
+    <allow-navigation href="https://geocode.xyz/*" />
+    <allow-navigation href="*://*.geocode.xyz/*" />
 
     <allow-navigation href="https://googleapis/*" />
     <allow-navigation href="*://*.googleapis/*" />
@@ -113,6 +117,8 @@
 
     <allow-intent href="https://agrox.roshnigrammarschool.com/*" />
     <allow-intent href="*://*.agrox.roshnigrammarschool.com/*" />
+    <allow-intent href="https://geocode.xyz/*" />
+    <allow-intent href="*://*.geocode.xyz/*" />
 
     <allow-intent href="https://googleapis/*" />
     <allow-intent href="*://*.googleapis/*" />
