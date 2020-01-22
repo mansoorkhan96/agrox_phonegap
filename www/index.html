@@ -55,126 +55,15 @@
                     <div class="col-md-6">
                         <div class="topbar-menu">
                             <ul class="topbar-menu">
-                                
-                                    
-                                <!-- <li><a href=""><img class="img-circle front-profile" src="{{ avatar(auth()->user()->avatar) }}" alt=""></a></li>
-                                <li><a href="">My Orders</a></li>
-                                
-                                <li>
-                                    <a href="" 
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                        LogOut
-                                    </a>
-                                </li>
-                                <form id="logout-form" action="{{ route('logout" method="POST" style="display: none;">
-                                    
-                                </form> -->
-                                
                                 <li><a href="">Login</a></li>
                                 <li><a href="">Register</a></li>
-                                
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Desktop Nav -->
-        <header id="header" class="header header-desktop header-2">
-            <div class="top-search">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <form>
-                                <input type="search" class="top-search-input" name="s" placeholder="What are you looking for?" />
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <a href="index.html" id="logo">
-                            <img class="logo-image" src="images/logo.png" alt="AgroX Logo" />
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="header-right">
-                            <nav class="menu">
-                                <ul class="main-menu">
-                                    <li class="active">
-                                        <a href="#">Home</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Shop</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Forum</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">About Us</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                            <div class="btn-wrap">
-                                <div class="mini-cart-wrap">
-                                    <div class="mini-cart">
-                                        <div class="mini-cart-icon" data-count="0">
-                                            <i class="ion-bag"></i>
-                                        </div>
-                                    </div>
-                                    <div class="widget-shopping-cart-content">
-                                        <ul class="cart-list">
-                                            <!-- @forelse (MCart::content() as $item)
-                                            <li>
-                                                {{ Form::open(['route' => ['cart.destroy', $item['rowId']], 'method' => 'DELETE']) }}
-                                                    <button type="submit" class="remove">x</button>
-                                                {{ Form::close() }}
-                                                {{-- <a href="#" class="remove">×</a> --}}
-                                                <a href="{{ route('shop.show', $item['slug']) }}">
-                                                    <img src="/storage/' . $item['image']) }}" alt="" />
-                                                    {{ $item['name'] }}&nbsp;
-                                                </a>
-                                                <span class="quantity">{{ $item['qty'] }} × Rs {{ $item['price'] }}</span>
-                                            </li> 
-                                            @empty
-                                            Empty Cart 
-                                            @endforelse -->
-                                        </ul>
-                                        <!-- <p class="total">
-                                            <strong>Subtotal:</strong> 
-                                            <span class="amount">Rs </span>
-                                        </p>
-                                        <p class="buttons">
-                                            <a href="{{ route('cart.index" class="view-cart">View cart</a>
-                                            @if (MCart::count() > 0)
-                                            <a href="{{ route('checkout.index" class="checkout">Checkout</a>
-                                            @endif
-                                        </p> -->
-                                    </div>
-                                </div>
-                                <div class="top-search-btn-wrap">
-                                    <div class="top-search-btn">
-                                        <a href="javascript:void(0);">
-                                            <i class="ion-search"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+      
         <!-- Mobile Nav -->
         <header class="header header-mobile">
             <div class="container">
@@ -196,7 +85,7 @@
                             <div class="mini-cart-wrap">
                                 <a href="#">
                                     <div class="mini-cart">
-                                        <div class="mini-cart-icon" data-count="3">
+                                        <div class="mini-cart-icon" data-count="0">
                                             <i class="ion-bag"></i>
                                         </div>
                                     </div>
@@ -291,65 +180,13 @@
                 }
             });
 
-            homePage();
-
-            $(document).on('click', '#menu-home', function(e) {
-                e.preventDefault();
-
-                homePage()
+            $.ajax({
+                url: 'https://agrox.roshnigrammarschool.com/'
+            }).done(function(data) {
+                $('body').html(data);
+            }).fail(function(data) {
+                
             });
-
-            function homePage() {
-                $('#main').load('pages/home.html');
-            }
-
-            // let app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-            // if(app) {  
-            //     /**
-            //     * Get Current Location
-            //     *
-            //     */
-            //     navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
-
-            //     /**
-            //     * Get Latitude and Longitude Cordinates and pass to getCity() to fetch the cityname
-            //     *
-            //     */
-            //     function onSuccess(position) {
-            //         timestamp = position.timestamp;
-
-            //         getCity(
-            //             position.coords.latitude,
-            //             position.coords.longitude
-            //         );
-            //     }
-
-            //     /**
-            //     * Get cityname from Lat, Long and pass the cityname to getSalatDetails() to get the Salat Details
-            //     *
-            //     */
-            //     function getCity(latitude, longitude) {
-            //         $.ajax({
-            //             url: `https://geocode.xyz/${latitude},${longitude}?geoit=json`
-            //         }).done(function(data) {
-            //             let postal = data.postal ? data.postal : 000000;
-            //             alert(data.city)
-            //             $('#billing_postal').val(postal)
-            //             $('#billing_country option:contains('+data.country+')').attr("selected", "selected");
-            //             $('#billing_province').val(data.region);
-            //             $('#billing_city').val(data.city);
-            //             $('#billing_address').val(data.staddress);
-            //             $('#shipping_address').val(data.staddress);
-                        
-            //         }).fail(function(data) {
-            //             alert('Something Went Wrong While Fetching the city name..');
-            //         });
-            //     }
-            
-            //     function onError(error) {
-            //         console(error)
-            //     }
-            // }
         });
     </script>
 
